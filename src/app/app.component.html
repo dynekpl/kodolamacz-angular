@@ -31,6 +31,7 @@
       <div class="card-body">
         <h4 class="card-title truncate" [class.selected]="book === selectedBook">{{book.title}}</h4>
         <p class="card-text truncate" [ngStyle]="authorsStyle">{{book.authors}}</p>
+        <app-rating></app-rating>
       </div>
     </div>
   </div>

@@ -32,7 +32,7 @@ export class AppComponent {
   }
 
   save(){
-    Object.assign(this.selectedBook, this.editedBook;
+    Object.assign(this.selectedBook, this.editedBook);
     this.reset();
   }
 

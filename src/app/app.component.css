@@ -1,0 +1,14 @@
+.selected{
+  box-shadow: brown 2px 2px 2px;
+}
+
+.truncate{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-book {
+  width: 320px;
+  border-bottom: 5px solid black;
+}

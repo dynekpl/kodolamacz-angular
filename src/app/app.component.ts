@@ -23,6 +23,14 @@ export class AppComponent {
   }
   ];
 
+  titleSize = 24;
+  get authorsStyle() {
+    return {
+      color: 'gray',
+      letterSpacing: '2px'
+    };
+  }
+
   selectedBook = null;
   editedBook = null;
 

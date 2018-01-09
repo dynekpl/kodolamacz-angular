@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BookCardComponent } from './book-card/book-card.component';
+import { BookCardComponent } from './components/book-card/book-card.component';
 import {SharedModule} from '../shared/shared.module';
-import { BookFormComponent } from './book-form/book-form.component';
+import { BookFormComponent } from './components/book-form/book-form.component';
 import {FormsModule} from '@angular/forms';
-import { BooksPanelComponent } from './books-panel/books-panel.component';
+import { BooksPanelComponent } from './components/books-panel/books-panel.component';
 
 @NgModule({
   imports: [

@@ -1,3 +1,4 @@
 <p>
-  rating works!
+  <span *ngFor="let value of values" class="fa fa-star"
+        [ngClass]="{'fa-star': value, 'fa-star-o': !value}"></span>
 </p>

@@ -23,3 +23,8 @@
   width: 320px;
   border-bottom: 2px solid black;
 }
+
+.book-authors {
+  letter-spacing: 2px;
+  color: lightgray;
+}

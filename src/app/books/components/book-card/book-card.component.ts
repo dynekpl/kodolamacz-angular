@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Book} from '../../model/book.model';
 
 @Component({
   selector: 'app-book-card',
@@ -8,7 +9,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class BookCardComponent{
 
   @Input()
-  book = {};
+  book : Book;
   @Input()
   isSelected = false;
   @Output()

@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
+import {BooksModule} from './books/books.module';
 
 
 @NgModule({
@@ -14,7 +15,7 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     FormsModule,
-    SharedModule
+    BooksModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -24,18 +24,4 @@ export class AppComponent {
       rating: 3
     }
   ];
-  selectedBook = null;
-  editedBook = null;
-  select(book) {
-    this.selectedBook = book;
-    this.editedBook = Object.assign({}, book);
-  }
-  save() {
-    Object.assign(this.selectedBook, this.editedBook);
-    this.reset();
-  }
-  reset() {
-    this.selectedBook = null;
-    this.editedBook = null;
-  }
 }

@@ -1,0 +1,19 @@
+.selected {
+  color: darkblue;
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-book {
+  width: 320px;
+  border-bottom: 2px solid black;
+}
+
+.book-authors {
+  letter-spacing: 2px;
+  color: lightgray;
+}

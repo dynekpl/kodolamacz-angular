@@ -7,6 +7,7 @@ import {FormsModule} from '@angular/forms';
 import { BooksPanelComponent } from './components/books-panel/books-panel.component';
 import {ArrayBooksService} from './service/array-books.service';
 import booksData from './model/books.data';
+import {Book} from './model/book.model';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import booksData from './model/books.data';
   providers: [
     {
       provide: 'BooksService',
-      useClass: ArrayBooksService
+      useFactory: booksServiceFactory,
+      deps: ['BooksData']
     },
     {
       provide: 'BooksData',
@@ -36,3 +38,7 @@ import booksData from './model/books.data';
   ]
 })
 export class BooksModule { }
+
+export function booksServiceFactory(booksData: Book[]) {
+  return new ArrayBooksService(booksData);
+}

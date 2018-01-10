@@ -1,6 +1,6 @@
 import {Component, Inject, Input, OnInit} from '@angular/core';
 import {Book} from '../../model/book.model';
-import {BooksService} from '../../service/books.service';
+import {ArrayBooksService} from '../../service/array-books.service';
 
 @Component({
   selector: 'app-books-panel',
@@ -13,7 +13,7 @@ export class BooksPanelComponent {
   selectedBook: Book = null;
   editedBook: Book = null;
 
-  constructor(@Inject('BooksService') private booksService: BooksService) {
+  constructor(private booksService: ArrayBooksService) {
     this.refresh();
   }
 

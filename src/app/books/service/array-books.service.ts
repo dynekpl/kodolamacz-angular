@@ -1,9 +1,8 @@
 import {Inject, Injectable, Optional} from '@angular/core';
-import {BooksService} from './books.service';
 import {Book} from '../model/book.model';
 
 @Injectable()
-export class ArrayBooksService implements BooksService {
+export class ArrayBooksService{
 
   constructor(@Optional() @Inject('BooksData') private books: Book[]){
     if (!books) {

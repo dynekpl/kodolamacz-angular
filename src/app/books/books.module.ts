@@ -5,14 +5,16 @@ import {SharedModule} from '../shared/shared.module';
 import { BookFormComponent } from './components/book-form/book-form.component';
 import {FormsModule} from '@angular/forms';
 import { BooksPanelComponent } from './components/books-panel/books-panel.component';
-import {ArrayBooksService} from './service/array-books.service';
-import booksData from './model/books.data';
+import { ArrayBooksService } from './service/array-books.service';
+import {HttpClientModule} from '@angular/common/http';
+import {HttpBooksService} from './service/http-books.service';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   declarations: [
     BookCardComponent,
@@ -25,12 +27,25 @@ import booksData from './model/books.data';
     BooksPanelComponent
   ],
   providers: [
-    ArrayBooksService,
+    //ArrayBooksService,
     {
-      provide: 'BooksData',
-      useValue: booksData
-    }
+      provide: 'BooksService',
+      useClass: HttpBooksService
+    },
+    // {
+    //   provide: 'BooksService',
+    //   useFactory: booksServiceFactory,
+    //   deps: ['BooksData']
+    // },
+    // {
+    //   provide: 'BooksData',
+    //   useValue: booksData
+    // }
   ]
 })
 export class BooksModule { }
+
+// export function booksServiceFactory(booksData: Book[]) {
+//   return new ArrayBooksService(booksData);
+// }
 

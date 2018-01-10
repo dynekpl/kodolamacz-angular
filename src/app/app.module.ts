@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import {BooksModule} from './books/books.module';
+import {Api} from './api';
 
 
 @NgModule({
@@ -17,7 +18,7 @@ import {BooksModule} from './books/books.module';
     FormsModule,
     BooksModule
   ],
-  providers: [],
+  providers: [Api],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

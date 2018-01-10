@@ -1,5 +1,5 @@
-import {Book} from "../model/book.model";
-import {Observable} from "rxjs/Observable";
+import {Book} from '../model/book.model';
+import {Observable} from 'rxjs/Observable';
 
 export interface BooksService {
 

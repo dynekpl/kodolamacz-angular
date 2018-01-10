@@ -6,9 +6,9 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/empty';
 
 @Injectable()
-export class ArrayBooksService implements BooksService{
+export class ArrayBooksService implements BooksService {
 
-  constructor(@Optional() @Inject('BooksData') private books: Book[]){
+  constructor(@Optional() @Inject('BooksData') private books: Book[]) {
     if (!books) {
       this.books = [];
     }
@@ -24,7 +24,7 @@ export class ArrayBooksService implements BooksService{
     return Observable.of(book);
   }
 
-  update(book: Book): Observable<any> {
+  update(book: Book): Observable<void> {
     const bookIndex = this.findBookIndex(book.id);
     if (bookIndex !== -1) {
       this.books[bookIndex] = book;
@@ -32,12 +32,17 @@ export class ArrayBooksService implements BooksService{
     return Observable.empty();
   }
 
-  remove(bookId: number): Observable<any> {
+  remove(bookId: number): Observable<void> {
     const bookIndex = this.findBookIndex(bookId);
     if (bookIndex !== -1) {
       this.books.splice(bookIndex);
     }
     return Observable.empty();
+  }
+
+  search(property: string, query: string): Observable<Book[]> {
+    throw new Error("Not implemented yet");
+    //return this.getAll();
   }
 
   private get nextId(): number {

@@ -4,8 +4,13 @@ import {Observable} from 'rxjs/Observable';
 export interface BooksService {
 
   getAll(): Observable<Book[]>;
+
   save(book: Book): Observable<Book>;
-  update(book: Book): Observable<any>;
-  remove(bookId: number): Observable<any>;
+
+  update(book: Book): Observable<void>;
+
+  remove(bookId: number): Observable<void>;
+
+  search(property: string, query: string): Observable<Book[]>;
 
 }

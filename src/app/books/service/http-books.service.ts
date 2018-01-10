@@ -19,12 +19,16 @@ export class HttpBooksService implements BooksService {
     return this.httpClient.post<Book>(this.api.books, book);
   }
 
-  update(book: Book): Observable<any> {
-    return this.httpClient.put<any>(`${this.api.books}/${book.id}`, book);
+  update(book: Book): Observable<void> {
+    return this.httpClient.put<void>(`${this.api.books}/${book.id}`, book);
   }
 
-  remove(bookId: number): Observable<any> {
-    return this.httpClient.delete<any>(`${this.api.books}/${bookId}`);
+  remove(bookId: number): Observable<void> {
+    return this.httpClient.delete<void>(`${this.api.books}/${bookId}`);
+  }
+
+  search(property: string, query: string): Observable<Book[]> {
+    return this.httpClient.get<Book[]>(`${this.api.books}?${property}_like=${query}`);
   }
 
 }

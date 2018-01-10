@@ -2,6 +2,7 @@ import {Component, Inject, Input, OnInit} from '@angular/core';
 import {Book} from '../../model/book.model';
 import {ArrayBooksService} from '../../service/array-books.service';
 import {Observable} from 'rxjs/Observable';
+import {BooksService} from '../../service/books.service';
 
 @Component({
   selector: 'app-books-panel',
@@ -13,9 +14,9 @@ export class BooksPanelComponent {
   books: Book[] = [];
   selectedBook: Book = null;
   editedBook: Book = null;
-  isLoading = false;
+  isProcessing = false;
 
-  constructor(private booksService: ArrayBooksService) {
+  constructor(@Inject('BooksService') private booksService: BooksService) {
     this.refresh();
   }
 
@@ -48,16 +49,21 @@ export class BooksPanelComponent {
   }
 
   refresh() {
-    this.isLoading = true;
-    this.booksService.getAll()
+    this.isProcessing = true;
+    this.refreshBooks(this.booksService.getAll());
+  }
+
+  refreshBooks(observableBooks: Observable<Book[]>) {
+    observableBooks
       .subscribe(
         books => this.books = books,
-        ex => { console.log(ex); this.isLoading = false; },
-        () => this.isLoading = false
+        ex => { console.log(ex); this.isProcessing = false; },
+        () => this.isProcessing = false
       );
   }
 
   private subscribe(observable: Observable<any>) {
+    this.isProcessing = true;
     observable.subscribe(() => this.refresh());
   }
 }

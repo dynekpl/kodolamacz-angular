@@ -8,18 +8,20 @@ import { BooksPanelComponent } from './components/books-panel/books-panel.compon
 import { ArrayBooksService } from './service/array-books.service';
 import {HttpClientModule} from '@angular/common/http';
 import {HttpBooksService} from './service/http-books.service';
+import { BooksSearchComponent } from './components/books-search/books-search.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   declarations: [
     BookCardComponent,
     BookFormComponent,
-    BooksPanelComponent
+    BooksPanelComponent,
+    BooksSearchComponent
   ],
   exports: [
     BookCardComponent,
@@ -27,11 +29,11 @@ import {HttpBooksService} from './service/http-books.service';
     BooksPanelComponent
   ],
   providers: [
-    ArrayBooksService,
-    //{
-    //  provide: 'BooksService',
-    //  useClass: HttpBooksService
-    //},
+    //ArrayBooksService,
+    {
+      provide: 'BooksService',
+      useClass: HttpBooksService
+    },
     // {
     //   provide: 'BooksService',
     //   useFactory: booksServiceFactory,

@@ -1,0 +1,20 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "Angular in action",
+      "authors": "Jan Kowalski",
+      "category": "#000080",
+      "bestseller": true,
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "title": "ReactJS",
+      "authors": "Jan Kowalski",
+      "category": "#0000ff",
+      "bestseller": false,
+      "rating": 3
+    }
+  ]
+}

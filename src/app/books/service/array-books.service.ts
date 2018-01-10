@@ -1,8 +1,12 @@
 import {Inject, Injectable, Optional} from '@angular/core';
 import {Book} from '../model/book.model';
+import {BooksService} from './books.service';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/observable/empty';
 
 @Injectable()
-export class ArrayBooksService{
+export class ArrayBooksService implements BooksService{
 
   constructor(@Optional() @Inject('BooksData') private books: Book[]){
     if (!books) {
@@ -10,28 +14,30 @@ export class ArrayBooksService{
     }
   }
 
-  getAll(): Book[] {
-    return this.books;
+  getAll(): Observable<Book[]> {
+    return Observable.of(this.books);
   }
 
-  save(book: Book): Book {
+  save(book: Book): Observable<Book> {
     book.id = this.nextId;
     this.books.push(book);
-    return book;
+    return Observable.of(book);
   }
 
-  update(book: Book) {
+  update(book: Book): Observable<any> {
     const bookIndex = this.findBookIndex(book.id);
     if (bookIndex !== -1) {
       this.books[bookIndex] = book;
     }
+    return Observable.empty();
   }
 
-  remove(bookId: number) {
+  remove(bookId: number): Observable<any> {
     const bookIndex = this.findBookIndex(bookId);
     if (bookIndex !== -1) {
       this.books.splice(bookIndex);
     }
+    return Observable.empty();
   }
 
   private get nextId(): number {

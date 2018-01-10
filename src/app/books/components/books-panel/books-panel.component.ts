@@ -13,6 +13,7 @@ export class BooksPanelComponent {
   books: Book[] = [];
   selectedBook: Book = null;
   editedBook: Book = null;
+  isLoading = false;
 
   constructor(private booksService: ArrayBooksService) {
     this.refresh();
@@ -47,10 +48,12 @@ export class BooksPanelComponent {
   }
 
   refresh() {
+    this.isLoading = true;
     this.booksService.getAll()
       .subscribe(
         books => this.books = books,
-        ex => console.log(ex)
+        ex => { console.log(ex); this.isLoading = false; },
+        () => this.isLoading = false
       );
   }
 

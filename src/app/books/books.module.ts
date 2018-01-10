@@ -27,11 +27,11 @@ import {HttpBooksService} from './service/http-books.service';
     BooksPanelComponent
   ],
   providers: [
-    //ArrayBooksService,
-    {
-      provide: 'BooksService',
-      useClass: HttpBooksService
-    },
+    ArrayBooksService,
+    //{
+    //  provide: 'BooksService',
+    //  useClass: HttpBooksService
+    //},
     // {
     //   provide: 'BooksService',
     //   useFactory: booksServiceFactory,

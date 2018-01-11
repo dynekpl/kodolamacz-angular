@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {BooksModule} from './books/books.module';
 import {Api} from './api';
+import {routerModule} from './app.routing';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import {Api} from './api';
   ],
   imports: [
     BrowserModule,
-    BooksModule
+    BooksModule,
+    routerModule
   ],
   providers: [Api],
   bootstrap: [AppComponent]

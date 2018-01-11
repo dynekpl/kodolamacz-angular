@@ -9,12 +9,14 @@ import { ArrayBooksService } from './service/array-books.service';
 import {HttpClientModule} from '@angular/common/http';
 import {HttpBooksService} from './service/http-books.service';
 import { BooksSearchComponent } from './components/books-search/books-search.component';
+import {routerModule} from './books.routing';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     SharedModule,
+    routerModule,
     HttpClientModule,
   ],
   declarations: [

@@ -10,6 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {HttpBooksService} from './service/http-books.service';
 import { BooksSearchComponent } from './components/books-search/books-search.component';
 import {routerModule} from './books.routing';
+import { BooksListComponent } from './components/books-list/books-list.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import {routerModule} from './books.routing';
     BookCardComponent,
     BookFormComponent,
     BooksPanelComponent,
-    BooksSearchComponent
+    BooksSearchComponent,
+    BooksListComponent
   ],
   exports: [
     BookCardComponent,

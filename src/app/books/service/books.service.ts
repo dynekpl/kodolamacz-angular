@@ -5,6 +5,8 @@ export interface BooksService {
 
   getAll(): Observable<Book[]>;
 
+  getById(bookId: number): Observable<Book>;
+
   save(book: Book): Observable<Book>;
 
   update(book: Book): Observable<void>;

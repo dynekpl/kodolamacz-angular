@@ -10,12 +10,14 @@
   </div>
   <div class="form-group">
     <label for="category">Category:</label>
-    <input id="category" type="color" [(ngModel)]="book.category">
+    <input id="category" type="color" [(ngModel)]="book.category" [disabled]="!isEditable">
   </div>
   <div class="form-group">
-    <input id="bestseller" type="checkbox" [(ngModel)]="book.bestseller">
+    <input id="bestseller" type="checkbox" [(ngModel)]="book.bestseller" [disabled]="!isEditable">
     <label for="bestseller">Bestseller</label>
   </div>
-  <button type="button" class="btn btn-danger" (click)="cancel.emit()">Cancel</button>
-  <button type="button" class="btn btn-primary" (click)="save.emit(book)">Save</button>
+  <div *ngIf="isEditable">
+    <button type="button" class="btn btn-danger" (click)="cancel.emit()">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="save.emit(book)">Save</button>
+  </div>
 </div>

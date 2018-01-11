@@ -3,20 +3,22 @@ import {BooksPanelComponent} from "./components/books-panel/books-panel.componen
 import {BookFormComponent} from './components/book-form/book-form.component';
 import {environment} from '../../environments/environment';
 import {BooksListComponent} from './components/books-list/books-list.component';
+import {BookResolver} from './book-resolver';
 
 const routes: Route[] = [
   {
-    path: 'books',
+    path: 'books/dashboard',
     component: BooksPanelComponent
   },
   {
-    path: 'books-list',
+    path: 'books/list',
     component: BooksListComponent,
     data: { env: environment }
   },
   {
-    path: 'books-list/:id',
-    component: BookFormComponent
+    path: 'books/list/:id',
+    component: BookFormComponent,
+    resolve: { book: BookResolver }
   }
 ];
 

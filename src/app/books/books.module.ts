@@ -11,6 +11,7 @@ import {HttpBooksService} from './service/http-books.service';
 import { BooksSearchComponent } from './components/books-search/books-search.component';
 import {routerModule} from './books.routing';
 import { BooksListComponent } from './components/books-list/books-list.component';
+import {BookResolver} from './book-resolver';
 
 @NgModule({
   imports: [
@@ -38,6 +39,7 @@ import { BooksListComponent } from './components/books-list/books-list.component
       provide: 'BooksService',
       useClass: HttpBooksService
     },
+    BookResolver
     // {
     //   provide: 'BooksService',
     //   useFactory: booksServiceFactory,

@@ -41,8 +41,12 @@ export class ArrayBooksService implements BooksService {
   }
 
   search(property: string, query: string): Observable<Book[]> {
-    throw new Error("Not implemented yet");
+    throw new Error('Not implemented yet');
     //return this.getAll();
+  }
+
+  getById(bookId: number): Observable<Book> {
+    throw new Error('Not implemented yet');
   }
 
   private get nextId(): number {

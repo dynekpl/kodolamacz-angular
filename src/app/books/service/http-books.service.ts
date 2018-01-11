@@ -31,4 +31,8 @@ export class HttpBooksService implements BooksService {
     return this.httpClient.get<Book[]>(`${this.api.books}?${property}_like=${query}`);
   }
 
+  getById(bookId: number): Observable<Book> {
+    return this.httpClient.get<Book>(`${this.api.books}/${bookId}`);
+  }
+
 }

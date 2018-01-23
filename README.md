@@ -1,3 +1,13 @@
+## json-server
+
+Jeśli używamy http-service to należy uruchomić serwer dostarczający danych wejściowych do aplikacji z pliku `*.json`
+
+Serwer uruchamiamy komendą: `json-server nazwa_pliku.json`
+Serwer działa pod adresem `http://localhost:3000` i trzeba ten url dodać do plików environment
+
+Instalacja serwera: `npm install -g json-server`
+
+
 # Books
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.1.
